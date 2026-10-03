@@ -1,0 +1,25 @@
+services:
+  api:
+    build: ./backend
+    ports: ["127.0.0.1:8000:8000"]
+    volumes: ["hot-monitor-data:/data"]
+    environment:
+      MONITOR_ENABLED: "true"
+      MONITOR_AI_ENABLED: "false"
+      EMAIL_ENABLED: "false"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  web:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_BASE_URL: http://127.0.0.1:8000
+    ports: ["127.0.0.1:3000:3000"]
+    depends_on:
+      api:
+        condition: service_healthy
+volumes:
+  hot-monitor-data:

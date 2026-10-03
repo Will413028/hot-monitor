@@ -1,0 +1,10 @@
+backend/.venv/
+AGENTS.local.md
+__pycache__/
+*.pyc
+.env
+.env.*
+
+*.db
+*.db-shm
+*.db-wal

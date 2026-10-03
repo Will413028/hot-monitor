@@ -1,0 +1,6 @@
+@import "tailwindcss";
+:root { --background: #f6f7fb; --foreground: #18181b; }
+@theme inline { --color-background: var(--background); --color-foreground: var(--foreground); --font-sans: Arial, Helvetica, sans-serif; --font-mono: monospace; }
+body { background: var(--background); color: var(--foreground); font-family: Arial, Helvetica, sans-serif; }
+.card { border: 1px solid #e4e4e7; border-radius: 16px; background: white; padding: 24px; }
+button { cursor: pointer; }
