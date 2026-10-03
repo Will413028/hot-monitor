@@ -8,3 +8,4 @@ Local single-process Next.js + FastAPI monitoring application. Product contracts
 - Run one API worker because scheduling and monitor locks belong to one process. SQLite notification IDs are monotonic for SSE replay.
 - LLM output is unverified and strictly validated. Do not turn a provider failure into fabricated analysis or an empty successful source.
 - Keep credentials in backend/.env or the runtime environment; never put them in browser settings or artifacts.
+- Decision records (ADR) live in docs/adr/.
